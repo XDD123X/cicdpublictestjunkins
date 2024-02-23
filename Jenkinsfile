@@ -1,7 +1,7 @@
 pipeline{
     agent any  
     stages{
-        stage{
+        stage('Stage 1') {
             steps{
                 git 'https://github.com/XDD123X/cicd.git'
             }
