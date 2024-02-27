@@ -1,9 +1,11 @@
+@Library("shared-library") _
 pipeline{
-    agent any  
+    agent node1
     stages{
-        stage('Stage 1') {
+        stage('Hello') {
             steps{
-               echo 'Hello world!' 
+               sh echo 'Hello world!'
+            //    addSidebarLink(url:'') 
             }
         }
     }
