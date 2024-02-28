@@ -15,6 +15,7 @@ pipeline {
             steps {
                 sh 'printenv'
                 sh 'whoami'
+                sh 'ifconfig'
             }
         }
         stage('Build Image') {
