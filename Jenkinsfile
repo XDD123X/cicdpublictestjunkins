@@ -13,13 +13,22 @@ pipeline {
                 name = 'Quan'
             }
             steps {
-                sh 'echo Hello world!'
+                sh 'printenv'
             }
         }
-        stage('Build') {
+        stage('Build Image') {
             steps {
                 script {
-                    def dockerImage = docker.build('nginxcustom', '.')
+                    sh 'docker login -u quancgu -p quan123Cgu'
+                    sh 'docker build -t quancgu/nginxcustom .'
+                }
+            }
+        }
+        stage('Push Image') {
+            steps {
+                script {
+                    sh 'docker login -u quancgu -p quan123Cgu'
+                    sh 'docker push quancgu/nginxcustom'
                 }
             }
         }
