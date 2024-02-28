@@ -21,7 +21,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
-                    sh 'touch file.txt'
+                    sh 'touch newfile.txt'
                 }
             }
         }
