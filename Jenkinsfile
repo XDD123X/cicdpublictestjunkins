@@ -17,7 +17,11 @@ pipeline {
             }
         }
         stage('Build') {
-            step([$class: 'DockerBuilderPublisher', cleanImages: true, cleanupWithJenkinsJobDelete: true, cloud: '', dockerFileDirectory: '', fromRegistry: [], pushCredentialsId: '', pushOnSuccess: true, tagsString: 'nginxcustom'])
+            steps {
+                script {
+                    def dockerImage = docker.build('nginxcustom', '.')
+                }
+            }
         }
     }
 }
