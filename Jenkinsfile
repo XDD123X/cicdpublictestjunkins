@@ -14,6 +14,7 @@ pipeline {
             }
             steps {
                 sh 'printenv'
+                sh 'whoami'
             }
         }
         stage('Build Image') {
