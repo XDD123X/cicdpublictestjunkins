@@ -25,12 +25,12 @@ pipeline {
                 }
             }
         }
-        // stage('Push Image') {
-        //     steps {
-        //         script {
-        //             sh 'docker push quancgu/nginxcustom'
-        //         }
-        //     }
-        // }
+        stage('Push Image') {
+            steps {
+                script {
+                    sh 'docker push quancgu/nginxcustom'
+                }
+            }
+        }
     }
 }
