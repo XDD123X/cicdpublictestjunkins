@@ -21,7 +21,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
-                    sh 'touch newfile.txt'
+                    sh 'docker build -t nginxcustom .'
                 }
             }
         }
