@@ -19,18 +19,16 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
-                    sh 'docker login -u quancgu -p quan123Cgu'
-                    sh 'docker build -t quancgu/nginxcustom .'
+                    sh 'docker build -t nginxcustom .'
                 }
             }
         }
-        stage('Push Image') {
-            steps {
-                script {
-                    sh 'docker login -u quancgu -p quan123Cgu'
-                    sh 'docker push quancgu/nginxcustom'
-                }
-            }
-        }
+        // stage('Push Image') {
+        //     steps {
+        //         script {
+        //             sh 'docker push quancgu/nginxcustom'
+        //         }
+        //     }
+        // }
     }
 }
