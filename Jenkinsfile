@@ -5,22 +5,16 @@ pipeline {
         }
     }
     environment {
-        CC = 'clang'
+        DOCKER_CREDENTIALS = credentials('dockerhublogin') // Thay 'dockerhublogin' bằng ID của Credential bạn đã tạo trong Jenkins
     }
     stages {
-        stage('Hello') {
-            environment {
-                name = 'Quan'
-            }
-            steps {
-                sh 'printenv'
-                sh 'whoami'
-                sh 'ifconfig'
-            }
-        }
         stage('Build Image') {
             steps {
                 script {
+                    // Thực hiện đăng nhập Docker
+                    withCredentials([usernamePassword(credentialsId: 'dockerhublogin', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                        sh "docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}"
+                    }
                     sh 'docker build -t nginxcustom .'
                 }
             }
