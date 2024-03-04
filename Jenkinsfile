@@ -8,6 +8,7 @@ pipeline {
             steps {
                 script {
                     withSonarQubeEnv(installations: 'sq1') {
+                        sh 'sudo apt install maven'
                         sh 'mvn sorna:sonar'
                     }
                 }
