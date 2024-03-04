@@ -12,7 +12,7 @@ pipeline {
         //     steps {
         //         script {
         //             withSonarQubeEnv(installations: 'sq1') {
-        //                 sh 'sorna:sonar'
+        //                 sh ' sorna:sonar'
         //             }
         //         }
         //     }
@@ -20,6 +20,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
+                    sh "${DOCKER_PASSWORD}"
                     withCredentials([usernamePassword(credentialsId: 'dockerhublogin', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                         sh "docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}"
                     }
