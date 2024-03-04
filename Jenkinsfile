@@ -1,13 +1,18 @@
 pipeline {
-    agent {
-        node {
-            label 'node2'
-        }
-    }
+    agent any
     environment {
         DOCKER_CREDENTIALS = credentials('dockerhublogin')
     }
     stages {
+        stage('Sonar Scan') {
+            steps {
+                script {
+                    withSonarQubeEnv(installations: 'sq1') {
+                        sh 'mvn sorna:sonar'
+                    }
+                }
+            }
+        }
         stage('Build Image') {
             steps {
                 script {
