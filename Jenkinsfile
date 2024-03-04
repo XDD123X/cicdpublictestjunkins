@@ -4,15 +4,15 @@ pipeline {
         DOCKER_CREDENTIALS = credentials('dockerhublogin')
     }
     stages {
-        stage('Sonar Scan') {
-            steps {
-                script {
-                    withSonarQubeEnv(installations: 'sq1') {
-                        sh 'sorna:sonar'
-                    }
-                }
-            }
-        }
+        // stage('Sonar Scan') {
+        //     steps {
+        //         script {
+        //             withSonarQubeEnv(installations: 'sq1') {
+        //                 sh 'sorna:sonar'
+        //             }
+        //         }
+        //     }
+        // }
         stage('Build Image') {
             steps {
                 script {
