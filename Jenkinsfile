@@ -26,7 +26,7 @@ pipeline {
         stage('Push Image') {
             steps {
                 script {
-                    sh "dockerhublogin"
+                    sh "echo dockerhublogin"
                     sh 'docker tag nginxcustom:latest quancgu/nginxcustom:latest'
                     sh 'docker push quancgu/nginxcustom'
                 }
