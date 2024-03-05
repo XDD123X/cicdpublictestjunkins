@@ -4,8 +4,10 @@ pipeline {
         DOCKER_CREDENTIALS = credentials('dockerhublogin')
     }
     stages {
-        stage('SCM') {
-            checkout scm
+        steps {
+            stage('SCM') {
+                checkout scm
+            }
         }
         // stage('SonarQube Analysis') {
         //     def scannerHome = tool 'SonarScanner';
