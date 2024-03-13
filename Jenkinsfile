@@ -9,9 +9,7 @@ pipeline {
                 checkout scm
             }
         }
-        // Uncomment and adjust the SonarQube stage as necessary.
-        // Make sure you have the SonarScanner tool configured in Jenkins.
-        /*
+        
         stage('SonarQube Analysis') {
             steps {
                 script {
@@ -22,7 +20,7 @@ pipeline {
                 }
             }
         }
-        */
+        
         stage('Build Image') {
             steps {
                 script {
