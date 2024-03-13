@@ -10,13 +10,10 @@ pipeline {
             }
         }
         
-        stage('SonarQube Analysis') {
-            steps {
-                steps {
-                    withSonarQubeEnv('SonarQubeServer') {
-                        sh 'sonar-scanner'
-                    }
-                }
+        stage('SonarQube analysis') {
+            def scannerHome = tool 'SonarScanner 4.0';
+            withSonarQubeEnv('My SonarQube Server') { 
+            sh "${scannerHome}/bin/sonar-scanner"
             }
         }
         
